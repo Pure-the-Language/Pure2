@@ -19,4 +19,8 @@
     <PackageReference Include="NuGet.Protocol" Version="6.8.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.CoreEngine\Parcel.CoreEngine.csproj" />
+  </ItemGroup>
+
 </Project>
