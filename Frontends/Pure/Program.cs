@@ -30,7 +30,7 @@ namespace Pure
             {
                 var interpreter = new Interpreter($"""
                     Pure 2 Interactive Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
-                    This is the frontend to Pure, the C# scripting platform.
+                    This is the frontend to Parcel NExT, a C#-based scripting platform.
                     """, null, null, null, null);
                 interpreter.Start();
                 EnterInteractiveMode(interpreter);

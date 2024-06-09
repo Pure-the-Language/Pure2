@@ -1,6 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 using System.Text;
-using Console = Colorful.Console;
 using Core.Utilities;
 using System.Reflection;
 using Core.Services;
