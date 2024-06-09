@@ -55,6 +55,12 @@ Besides `Pure.exe`, there is a separate `Notebook.exe` which provides jupyter no
 The Notebook interface is only usable for Window - but one can easily develop one for other desktop environments using cross-platform techniques. I didn't bother because I am the only one using Pure.  
 WARNING: Notice Pure is not for you if you - 1) Need to run and maintain outdated code base that's reluctant to adapt new C# features; 2) Have strong dependancies on custom libraries or legacy codes; 3) Can only use .Net Framework; 4) Need to stick with a single runtime version for long time. In those circumstances, Pure is not for you because Pure will always be updated to latest .Net runtime and backward compatibility is one of the least concern when it comes to adapting new features (though some level of "stability" is apparently assumed).
 
+## Migration from Pure (Version 1)
+
+Pure 2 will NOT be backward compatible with Pure! However it's likely Pure will be forward compatible with Pure 2 to some extent.
+
+PENDING MIGRATION NOTES.
+
 ## Installation & Source Build
 
 The source code can be built on Windows/Linux with .Net 8 SDK.
