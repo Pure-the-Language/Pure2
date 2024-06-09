@@ -44,8 +44,8 @@ Certain macros/syntax are provided to implement language level scripting constru
 timeline
     Title Version Timeline
     2022-2024: Pure (Version 1)
-    2024: Pure (Version 1) v0.7.3
-    2024 June: Pure 2
+    2024: Pure (Version 1) (v0.7.3)
+    2024 June: Pure 2 (v0.0.1)
 ```
 
 ## Notebook Program

@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Core
+﻿namespace Core
 {
     [Serializable]
     public class RecursiveParsingException : Exception

@@ -11,7 +11,7 @@ namespace Pure
             if (args.Length == 1 && args.Single().Equals("--help", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine($"""
-                    Interactive Pure Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
+                    Pure 2 Interactive Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
                     CLI Variants:
                       pure: REPL mode
                       pure --version: Print version
@@ -29,7 +29,7 @@ namespace Pure
             else if (args.Length == 0)
             {
                 var interpreter = new Interpreter($"""
-                    Interactive Pure Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
+                    Pure 2 Interactive Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
                     This is the frontend to Pure, the C# scripting platform.
                     """, null, null, null, null);
                 interpreter.Start();
