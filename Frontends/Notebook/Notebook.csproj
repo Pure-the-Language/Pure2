@@ -24,7 +24,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Core\Pure.Core.csproj" />
+		<ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.CoreEngine\Parcel.CoreEngine.csproj" />
+		<ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.NExT.Interpreter\Parcel.NExT.Interpreter.csproj" />
 	</ItemGroup>
 
 </Project>

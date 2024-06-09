@@ -1,4 +1,5 @@
-using Core;
+using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Scripting;
 
 namespace CoreTest
 {
@@ -140,14 +141,14 @@ namespace CoreTest
             interpreter.Start();
 
             foreach (var a in segments)
-                Core.Utilities.Construct.Parse(a);
-            Core.Utilities.Construct.Parse("Build(string.Empty)");
+                Construct.Parse(a);
+            Construct.Parse("Build(string.Empty)");
 
             string expected = script.Replace("Import(Markdig)", "string[] Arguments = Array.Empty<string>();").Replace("\r\n", "\n") + "\n" + "Build(string.Empty)";
             Assert.Equal(expected, interpreter.GetState().Replace("\r\n", "\n"));
 
             foreach (var a in segments)
-                Core.Utilities.Construct.Parse(a);
+                Construct.Parse(a);
             Assert.Equal(expected + script.Replace("Import(Markdig)", string.Empty).Replace("\r\n", "\n"), interpreter.GetState().Replace("\r\n", "\n"));
         }
         [Fact]
@@ -158,7 +159,7 @@ namespace CoreTest
 
             Assert.Throws<RecursiveParsingException>(() =>
             {
-                Core.Utilities.Construct.Parse(""""
+                Construct.Parse(""""
                 int a = 5; Parse("WriteLine(5)");
                 """");
             });
@@ -169,7 +170,7 @@ namespace CoreTest
             Interpreter interpreter = new(null, null, null, null, null);
             interpreter.Start();
 
-            Core.Utilities.Construct.Parse(""""
+            Construct.Parse(""""
                 Parse("WriteLine(5)");
                 """");
 

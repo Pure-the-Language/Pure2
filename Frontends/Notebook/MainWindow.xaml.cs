@@ -1,7 +1,4 @@
-﻿using Core;
-using Pure.Core.Helpers;
-using Pure.Core.Services;
-using ICSharpCode.AvalonEdit;
+﻿using ICSharpCode.AvalonEdit;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -14,6 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Parcel.CoreEngine.Helpers;
+using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Helpers;
 
 namespace Notebook
 {
@@ -315,7 +315,7 @@ namespace Notebook
             };
             if (window.ShowDialog() == true && !string.IsNullOrEmpty(window.Result))
             {
-                string[] arguments = window.Result.SplitArgumentsLikeCsv(' ');
+                string[] arguments = window.Result.SplitCommandLineArguments(' ');
                 Interpreter.UpdateScriptArguments(arguments);
             }
             e.Handled = true;

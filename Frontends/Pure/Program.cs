@@ -1,6 +1,6 @@
 ﻿using Parcel.CoreEngine.Helpers;
-using Pure.Core;
-using Pure.Core.Helpers;
+using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Helpers;
 
 namespace Pure
 {

@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using Parcel.CoreEngine.Helpers;
+using System.Text.RegularExpressions;
 
 namespace Python
 {
@@ -6,7 +7,7 @@ namespace Python
     {
         internal static string FindPythonDLL()
         {
-            foreach (string path in SplitArgumentsLikeCsv(Environment.GetEnvironmentVariable("PATH"), ';', true))
+            foreach (string path in StringHelper.SplitCommandLineArguments(Environment.GetEnvironmentVariable("PATH"), ';'))
             {
                 try
                 {
@@ -21,21 +22,6 @@ namespace Python
                 catch (Exception) { continue; }
             }
             return null;
-
-            static string[] SplitArgumentsLikeCsv(string line, char separator = ',', bool ignoreEmptyEntries = false)
-            {
-                // Remark-cz: We use Csv library mainly to allow automatic handling of double quotes
-                string[] arguments = Csv.CsvReader.ReadFromText(line, new Csv.CsvOptions()
-                {
-                    HeaderMode = Csv.HeaderMode.HeaderAbsent,
-                    Separator = separator
-                }).First().Values;
-
-                if (ignoreEmptyEntries)
-                    return arguments.Where(a => !string.IsNullOrWhiteSpace(a)).ToArray();
-                else
-                    return arguments;
-            }
         }
     }
 }
