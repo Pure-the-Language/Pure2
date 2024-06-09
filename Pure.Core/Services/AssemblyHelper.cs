@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Core.Services
+namespace Pure.Core.Services
 {
     public static class AssemblyHelper
     {

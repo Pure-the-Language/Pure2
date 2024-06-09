@@ -1,10 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using System.Text;
-using Core.Utilities;
+using Pure.Core.Utilities;
 using System.Reflection;
-using Core.Services;
+using Pure.Core.Services;
 
-namespace Core
+namespace Pure.Core
 {
     /// <summary>
     /// Main provider for external frontends, this is the interface into RoslynContext.

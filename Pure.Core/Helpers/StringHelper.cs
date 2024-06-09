@@ -1,4 +1,4 @@
-﻿namespace Core.Helpers
+﻿namespace Pure.Core.Helpers
 {
     public static class StringHelper
     {

@@ -5,11 +5,11 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Text;
 using System.Diagnostics.CodeAnalysis;
-using Core.Services;
-using Core.Utilities;
-using Core.Helpers;
+using Pure.Core.Services;
+using Pure.Core.Utilities;
+using Pure.Core.Helpers;
 
-namespace Core
+namespace Pure.Core
 {
     internal sealed class RedirectedTextWriter : TextWriter
     {
@@ -234,8 +234,8 @@ namespace Core
                     "System.IO", 
                     "System.Linq")
                 // Pure language essential namespaces, types, and global static functions
-                .AddImports($"{nameof(Core)}.{nameof(Utilities)}")
-                .AddImports($"{nameof(Core)}.{nameof(Utilities)}.{nameof(Construct)}");
+                .AddImports($"Pure.{nameof(Core)}.{nameof(Utilities)}")
+                .AddImports($"Pure.{nameof(Core)}.{nameof(Utilities)}.{nameof(Construct)}");
             // Add additional assembly references (won't automatically import namespaces)
             if (additionalReferences != null )
                 options.AddReferences(additionalReferences.ToArray());

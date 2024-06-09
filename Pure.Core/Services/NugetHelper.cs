@@ -7,7 +7,7 @@ using NuGet.Protocol.Core.Types;
 using NuGet.Versioning;
 using System.Diagnostics;
 
-namespace Core.Services
+namespace Pure.Core.Services
 {
     #region Placeholder Solution
     /// <remarks>

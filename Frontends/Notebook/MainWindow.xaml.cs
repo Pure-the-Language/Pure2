@@ -1,6 +1,6 @@
 ﻿using Core;
-using Core.Helpers;
-using Core.Services;
+using Pure.Core.Helpers;
+using Pure.Core.Services;
 using ICSharpCode.AvalonEdit;
 using Microsoft.Win32;
 using System;

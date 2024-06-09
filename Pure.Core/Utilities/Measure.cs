@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Core.Utilities
+namespace Pure.Core.Utilities
 {
     public class Measure : IDisposable
     {

@@ -1,5 +1,5 @@
-﻿using Core;
-using Core.Helpers;
+﻿using Pure.Core;
+using Pure.Core.Helpers;
 
 namespace Pure
 {

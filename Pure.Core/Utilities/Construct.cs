@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Core.Utilities
+namespace Pure.Core.Utilities
 {
     /// <summary>
     /// Provides some global-level functions that's exposed at the root of Roslyn context;

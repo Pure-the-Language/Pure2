@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace Pure.Core
 {
     [Serializable]
     public class RecursiveParsingException : Exception

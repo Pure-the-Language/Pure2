@@ -1,4 +1,4 @@
-﻿using Core.Helpers;
+﻿using Pure.Core.Helpers;
 using ScottPlot;
 using System.Diagnostics;
 using System.Reflection;
