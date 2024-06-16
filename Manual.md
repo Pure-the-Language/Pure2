@@ -1,8 +1,8 @@
-# (Wiki) Pure - The Scripting Language
+# C# Programming in Pure <!--Originally: Pure The Scripting Platform-->
 
 <!-- This will be the main book for Pure usage; Consider it as a user guide; This shall be written independent from the rest of Pure solution documentations. -->
 
-As a scripting language, pure has the following features:
+As a scripting tool, pure has the following features:
 
 * It's strongly typed
 * It requires a semi-colon to end a statement
@@ -52,7 +52,7 @@ a * 5
 
 ## Chapter 2 - REPL
 
-As a scripting language, REPL and scripts are two primary use of Pure. REPL refers to read–eval–print loop, it's done by interactively executing Pure expressions with the interpreter terminal Pure.
+As a scripting tool, REPL and scripts are two primary use of Pure. REPL refers to read–eval–print loop, it's done by interactively executing Pure expressions with the interpreter terminal Pure.
 
 ### Get Information (NOT IMPLEMENTED)
 

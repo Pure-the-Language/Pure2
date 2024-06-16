@@ -29,3 +29,5 @@ The current state of Pure is very OK to be used for one-liners and quick REPL co
 - [ ] (Framework) Expresso
 
 - [ ] (Notebook, GUI, Feature) Selected phrase highlight, or search-in-code-cells function. Makes refactoring variables easier.
+- [ ] (Notebook) Re-implement Notebook in Godot for cross-platform support and advanced features we didn't have last time. For this we could use embedded runtime in (full C#) Godot (instead of S/C architecture).
+- [ ] (Branding) Instead of calling Pure a "programming/scripting platform", we should downgrade it into simply a scripting tool, so it's more acceptable.
