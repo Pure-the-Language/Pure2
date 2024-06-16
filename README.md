@@ -22,6 +22,8 @@ Features:
 * Pure uses `PUREPATH` to search for scripts when using `Include` and when executing script file directly from command line as the first argument.
 * Pure is very lightweight and will always be a thin layer on top of existing Roslyn/.Net runtime.
 
+Pure is designed for very short snippets and getting everyday tasks done quicker.
+
 I have highlighted the difference/advantage compared to traditional programming/scripting platforms:
 
 |Platform|Pure|C#|Python|PowerShell|Perl|Pure 2|
@@ -70,6 +72,8 @@ The source code can be built on Windows/Linux with .Net 8 SDK.
 
 ## Create a Library for Use in Pure
 
+<!-- Keywords: Library Development -->
+
 There are three types of ready-to-use libraries for Pure:
 
 * Any regular C# Net 8 DLL, as published on [Nuget](https://www.nuget.org/). May work with older versions of .Net Core dlls but use discretion; May even also work with .Net Framework dlls but I observed occassions when behaviors are unpredictable.
@@ -83,8 +87,12 @@ The intended usage scenario of Pure is like this:
 * On top of that, Pure provides native support for library importing (using `Import()`) and scripting importing (using `Include()`)
 * When extending existing functionalities of Pure or simply developing libraries around re-usable code, a developer would write actual C# Class Library projects and expose those as DLLs for end consumption in Pure.
 
-As such, to create a library for Pure is very easy - just like creating any standard C# library. A convention is used that a static class named `Main` inside the library assembly will have all its static members made available globally when using `Import()` in Pure.  
-By default, when importing in Pure, all namespaces of the DLL module containing public classes will be imported.
+As such, to create a library for Pure is very easy - just like creating any standard C# library. By default, when importing in Pure, all namespaces of the DLL module containing public classes will be imported.
+
+Libraries can provide rich runtime behavior by adopting those conventions (none of which requires a dependency on Pure 2's runtime), which take effect during Import using `Import()`:
+
+1. When a static class named `Main` is provided inside the library assembly, all its static members will be made available globally;
+2. If a static class name `Pure2LibraryOptions` is provided, there are a few parameters one can use to alter library loading behavior: 1) `public static bool DefaultNamespaceImport = true` Specifies whether we should import all namespaces containing public classes by default; 2) `public static string[] TopLevelClasses = ["Main"]` Specifies which classes should expose all its members at import time, this is equivalent to or an alternative to using `Main` (useful when we have multiple classes which we wish to export names at global level).
 
 **Troubleshooting**
 
@@ -94,18 +102,18 @@ System.Drawing is not (directly) supported on this platform. Notice the scenario
 
 Library authoring requirements: Note that any (plug-in) libraries being authored CANNOT (and thus should not) directly target (or indirectly target) *.Net 8 Windows* because the hosting environment (aka. Pure) target *.Net 8* (without specifying windows as target). The solution for this is to isolate such components and trigger as sub-process (so some sort of data tranmission or IPC is needed).
 
-## Visual Studio Development
+## Visual Studio Development (Full C# Projects)
 
-For quick on-demand develpment, it's recommended to use [Notebook](./Frontends/Notebook/) for that purpose.
+For quick iterative on-demand development, it's recommended to use [Notebook](./Frontends/Notebook/) for that purpose.
 
 For slightly more involved scripts, one can use Visual Studio for debugging purpose. (For more advanced applications, it's recommended to use proper C#). Notice it's recommended to keep everything in single file and do not commit csproj and sln files to version control.
 
-Create a C# Console project with .Net 8 while making sure *Do not use top level statements* is toggled off.
+Create a C# Console project with .Net 8 while making sure *Do not use top level statements* is toggled off. (If you use command line, you can also just do `dotnet new console` in the script folder)
 
 ![VSDevSetup_Step1](./docs/Images/VSDevSetup_Step1.png)
 ![VSDevSetup_Step2](./docs/Images/VSDevSetup_Step2.png)
 
-It's recommended to specify `<Nullable>disable</Nullable>` in `.csproj` file, as shown below:
+It's optional to specify `<Nullable>disable</Nullable>` in `.csproj` file if you don't want to handle `null` values, as shown below:
 
 ![VSDevSetup_Step3](./docs/Images/VSDevSetup_Step3.png)
 
@@ -162,3 +170,5 @@ Where,
 1. `Import()` and `Include()` doesn't work, but one can use Nuget and project files to achieve the same effect.
 2. `using` statements must be at the top of the script in both C# and Pure.
 3. One needs to define an auxiliary `string[] Arguments` which is supplemented by Pure otherwise.
+
+A video instruction is available for [converting Pure scripts into C# projects](https://youtu.be/cMwUXAynZcs?si=5I_qjP2B21R4mrdv).
