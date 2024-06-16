@@ -25,7 +25,7 @@
 
     /// <summary>
     /// General configurations for plots, certain values are only applicable to specific plots.
-    /// Serialized in <see cref="InteractivePlotData"/>
+    /// Serialized in <see cref="PlotDescriptionData"/>
     /// </summary>
     public class PlotOptions
     {
@@ -35,7 +35,6 @@
         #endregion
 
         #region Output Behavior
-        public bool Interactive { get; set; } = false;
         public string OutputImage { get; set; } = string.Empty; // Remark-cz: Cannot be null because we are serializing this
         #endregion
 

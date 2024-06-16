@@ -6,7 +6,7 @@ namespace Graphing
     /// <summary>
     /// Main interoperability data transfer between this library and display backend (frontend)
     /// </summary>
-    public class InteractivePlotData
+    public class PlotDescriptionData
     {
         #region Data
         /// <summary>
@@ -31,7 +31,7 @@ namespace Graphing
         /// <summary>
         /// Load plot data from compressed file.
         /// </summary>
-        public static InteractivePlotData LoadData(string filepath)
+        public static PlotDescriptionData LoadData(string filepath)
         {
             using LZ4DecoderStream source = LZ4Stream.Decode(File.OpenRead(filepath));
             using BinaryReader reader = new(source, Encoding.UTF8, false);
@@ -40,7 +40,7 @@ namespace Graphing
         /// <summary>
         /// Save plot data as compressed file.
         /// </summary>
-        public static void SaveData(InteractivePlotData data, string filepath)
+        public static void SaveData(PlotDescriptionData data, string filepath)
         {
             using LZ4EncoderStream stream = LZ4Stream.Encode(File.Create(filepath));
             using BinaryWriter writer = new(stream, Encoding.UTF8, false);
@@ -49,7 +49,7 @@ namespace Graphing
         /// <summary>
         /// Save plot data to stream.
         /// </summary>
-        public static void WriteToStream(BinaryWriter writer, InteractivePlotData data)
+        public static void WriteToStream(BinaryWriter writer, PlotDescriptionData data)
         {
             // Plot type
             writer.Write((byte)data.PlotType);
@@ -68,7 +68,6 @@ namespace Graphing
             // Options
             writer.Write(data.Options.WindowWidth);
             writer.Write(data.Options.WindowHeight);
-            writer.Write(data.Options.Interactive);
             writer.Write(data.Options.OutputImage);
             writer.Write(data.Options.DrawTitle);
             writer.Write(data.Options.DrawAxes);
@@ -84,9 +83,9 @@ namespace Graphing
         /// <summary>
         /// Read plot data from stream.
         /// </summary>
-        public static InteractivePlotData ReadFromStream(BinaryReader reader)
+        public static PlotDescriptionData ReadFromStream(BinaryReader reader)
         {
-            InteractivePlotData data = new();
+            PlotDescriptionData data = new();
 
             // Plot type
             data.PlotType = (PlotType)reader.ReadByte();
@@ -109,7 +108,6 @@ namespace Graphing
             {
                 WindowWidth = reader.ReadInt32(),
                 WindowHeight = reader.ReadInt32(),
-                Interactive = reader.ReadBoolean(),
                 OutputImage = reader.ReadString(),
                 DrawTitle = reader.ReadBoolean(),
                 DrawAxes = reader.ReadBoolean(),

@@ -1,5 +1,5 @@
 # Use command line toggle --incremental to skip deleting publish folder and skip creating archive, thus making build faster.
-Write-Host "Publish for final packaging build..."
+Write-Host "Publish for final packaging build (Pure 2)..."
 $PrevPath = Get-Location
 Set-Location $PSScriptRoot
 
@@ -30,7 +30,7 @@ if (-Not (Test-Path $pureExePath)) {
 if ($Args[0] -ne '--incremental') {
     $Date = Get-Date -Format yyyyMMdd
     $ArchiveFolder = "$PublishFolder\..\Packages"
-    $ArchivePath = "$ArchiveFolder\Pure_DistributionBuild_B$Date.zip"
+    $ArchivePath = "$ArchiveFolder\Pure2_DistributionBuild_B$Date.zip"
     New-Item -ItemType Directory -Force -Path $ArchiveFolder
     Compress-Archive -Path $PublishFolder\* -DestinationPath $ArchivePath -Force
 }

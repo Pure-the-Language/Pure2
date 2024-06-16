@@ -1,6 +1,7 @@
 ## TODO
 
-(CONSIDER PUTTING THEM ALL INTO GITHUB ISSUES)
+(CONSIDER PUTTING THEM ALL INTO ADO; PENDING GATHERING OLD GITHUB ISSUES)
+(Also search "TODO" in all files)
 
 The current state of Pure is very OK to be used for one-liners and quick REPL commands. The two frontends (one REPL/CLI and the other Notebook) are generally very stable right now (as of 2023 late summer to Dec).
 
@@ -31,3 +32,7 @@ The current state of Pure is very OK to be used for one-liners and quick REPL co
 - [ ] (Notebook, GUI, Feature) Selected phrase highlight, or search-in-code-cells function. Makes refactoring variables easier.
 - [ ] (Notebook) Re-implement Notebook in Godot for cross-platform support and advanced features we didn't have last time. For this we could use embedded runtime in (full C#) Godot (instead of S/C architecture).
 - [ ] (Branding) Instead of calling Pure a "programming/scripting platform", we should downgrade it into simply a scripting tool, so it's more acceptable.
+
+## Libraries
+
+- [ ] Refactor all libraries in to Parcel Core (notice they are NOT part of Parcel Standard Libraries)

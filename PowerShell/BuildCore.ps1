@@ -1,5 +1,5 @@
 # Build core components and CLI
-Write-Host "Build core..."
+Write-Host "Build core assemblies (Pure and Notebook)..."
 $PrevPath = Get-Location
 Set-Location $PSScriptRoot
 
