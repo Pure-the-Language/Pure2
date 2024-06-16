@@ -64,7 +64,7 @@ After you've done some REPL exercise, you can output you inputs in this session 
 
 ## Chapter 3 - Standard Libraries
 
-A few standard libraries are provided as light wrappers of some conventional functionalities as encountered per author's experience and work needs.
+~~A few standard libraries are provided as light wrappers of some conventional functionalities as encountered per author's experience and work needs.~~ (If it's really as lightweight or trivial like this, consider exposing them as snippets ~~or macros~~)
 
 ### ODBC
 
@@ -100,4 +100,4 @@ As code logic becomes more intricate, without a proper debugger (which is planne
 * `dotnet new console`
 * `dotnet run <project-name.csproj>`
 
-This creates a minimum 2-file template for any single file script. Syntax of certain things might need tweaking and referencing Pure standard libraries need tweaking as well (pending documentation).
+This creates a minimum 2-file template for any single file script. Syntax of certain things might need tweaking and referencing Pure libraries need tweaking as well (we already have documentation on this, pending merging).

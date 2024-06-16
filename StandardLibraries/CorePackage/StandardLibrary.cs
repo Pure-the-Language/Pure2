@@ -36,7 +36,7 @@
         /// </summary>
         Experimental,
         /// <summary>
-        /// The library provides entry points or is a wrapper of other standard libraries
+        /// The library provides entry points or is a wrapper of other existing libraries
         /// </summary>
         MetaPackage,
         /// <summary>
@@ -46,7 +46,7 @@
     }
 
     /// <summary>
-    /// Base definition of standard libraries
+    /// Base definition of custom libraries
     /// </summary>
     public abstract class StandardLibrary: CorePackage
     {
@@ -59,7 +59,7 @@
         /// </summary>
         public abstract StandardLibraryType Type { get; }
         /// <summary>
-        /// All standard libraries have the capability of issuing load-time instructions, but should generally be used only by meta-packages
+        /// All libraries have the capability of issuing load-time instructions, but should generally be used only by meta-packages
         /// </summary>
         public virtual string? Instructions { get; } = null;
     }

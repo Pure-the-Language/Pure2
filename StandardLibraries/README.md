@@ -1,4 +1,6 @@
-# Standard Libraries
+# ~~Standard Libraries~~ --> Custom Libraries
+
+(Pending consolidation: Pure 2 will NOT offer any custom libraries - all its library offerings are based on C# Nuget or Parcel eco system. We may however expose certain things through snippets/macros - pending differentiation/definition)
 
 > `Main` should be provided in a namespace the same as library name. This way `Help(LibraryName.Main)` makes sense, and the same `Main` is not conflicting with other libraries.
 

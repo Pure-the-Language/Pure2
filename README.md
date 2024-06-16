@@ -1,12 +1,12 @@
 # Pure 2 - Lightweight Native C# Scripting (Now part of the Parcel NExT Platform⚡)
 
-<!-- Pending video tutorial series on Pure's standard libraries on the YouTube channel! -->
+<!-- Pending video tutorial series on Pure's available libraries on the YouTube channel! -->
 
 THIS IMPLEMENTATION IS A WORK-IN-PROGRESS AS OF 2024-06-16.
 
 ## Introduction
 
-Pure 2 is a lightweight C# scripting platform with modern C# 12 syntax and support for easy Nuget import. Pure is based on Roslyn. In addition to base .Net runtime functionalities, Pure offers some standard libraries for quickly dealing with common tasks, and provides a handy scripting (REPL and Notebook) interface, plus a place where people can share their [snippets](https://github.com/Pure-the-Language/CentralSnippets). Pure 2 is conceptually similar to [Pure](https://github.com/Pure-the-Language/Pure) but will be architecturally very different - it directly builds upon Parcel NExT's Ama runtime. Pure is designed for very short snippets and getting everyday tasks done quicker.
+Pure 2 is a lightweight C# scripting platform with modern C# 12 syntax and support for easy Nuget import. Pure is based on Roslyn. In addition to base .Net runtime functionalities, Pure offers some additional libraries for quickly dealing with common tasks, and provides a handy scripting (REPL and Notebook) interface, plus a place where people can share their [snippets](https://github.com/Pure-the-Language/CentralSnippets). Pure 2 is conceptually similar to [Pure](https://github.com/Pure-the-Language/Pure) but will be architecturally very different - it directly builds upon Parcel NExT's Ama runtime. Pure is designed for very short snippets and getting everyday tasks done quicker.
 
 Pure 2 uses C# 12 and is similar to [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) in C#, with the following features:
 
@@ -92,7 +92,7 @@ There are three types of ready-to-use libraries for Pure:
 The intended usage scenario of Pure is like this:
 
 * Pure provides a complete syntax and all of the standard features of .Net 8 runtime (C# 12)
-* On top of the basics, Pure provides some standard libraries to further streamline common tasks
+* On top of the basics, Pure provides some additional libraries/snippets to further streamline common tasks
 * On top of that, Pure provides native support for library importing (using `Import()`) and scripting importing (using `Include()`)
 * When extending existing functionalities of Pure or simply developing libraries around re-usable code, a developer would write actual C# Class Library projects and expose those as DLLs for end consumption in Pure.
 

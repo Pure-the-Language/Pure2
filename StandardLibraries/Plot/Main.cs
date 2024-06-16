@@ -153,7 +153,7 @@ namespace Graphing
     }
 
     /// <summary>
-    /// Standard library entry
+    /// Library entry
     /// </summary>
     public static class Main
     {
