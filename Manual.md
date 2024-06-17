@@ -1,12 +1,32 @@
 # C# Programming in Pure <!--Originally: Pure The Scripting Platform-->
 
+Author: Charles Zhang
+Year: 2024
+
 <!-- This will be the main book for Pure usage; Consider it as a user guide; This shall be written independent from the rest of Pure solution documentations. -->
+<!-- As a proper textbook, consider expanding more on C# language itself -->
 
-As a scripting tool, pure has the following features:
+## Foreword
 
-* It's strongly typed
-* It requires a semi-colon to end a statement
-* Its names are case sensitive
+(Pending someone who uses Pure and finds it useful, or even loves it)
+
+## Table of Contents
+
+* Foreword
+* Introduction
+* Chapter 1: Setup, Installation & Compile from Source
+* Chapter 2: Basics
+* Chapter 4: REPL
+* Chapter 5: Standard Libraries
+* Chapter 6: The Parcel NExT Ecosystem
+* Chapter 7: Best Practices
+
+## Introduction
+
+Pure is a scripting tool that exploits the runtime compilation features of latest .Net ecosystem and puts C# to the frontier of scripting use. C# is a strongly typed programming language and requires a semi-colon to end a statement, its variable and function names are case sensitive, which all make a well-written piece of code easy to read. Pure offers utilities that skips the "compilation" step and allows execution directly from a script file. What's more, Pure simplifies certain syntax and usages of the typical C# slightly - but those simple simplifications makes using C# on a daily basis for really small tasks way easier.
+
+This is a very practical guide on how to use Pure, it also serves as a manual to the tool. Pure itself is pretty straightforward, so this books talks more about what's going on "behind the scene".  
+It's not a reference book for the C# language, though we will cover certain language concepts when relevant.
 
 Who should use Pure:
 
@@ -14,12 +34,20 @@ Who should use Pure:
 * C# Veterans
 * Those looking for alternative to Python for automation.
 
+### Who is This Book For?
+
+If you are a Methodox employee or a Parcel NExT developer, then you should read this book as well for it provides useful concrete information on Pure.
+
+If you want a comprehensive guide on C#, I have benefited greatly from the textbooks by Andrew Troelsen, Phil Japikse and Christian Nage. If you are looking for an even simpler and more efficient programming platform than Pure for most tasks, consider Programming with Parcel written by myself.
+
+## Chapter 1: Setup, Installation & Compile from Source
+
 Basic Usage: 
 
 * Download [BaseRepl](https://github.com/Pure-the-Language/BaseRepl) to get familiar with CSharp syntax and REPL with C#.
 * Play with Pure just like BaseRepl (Releases are generally available on [Github](https://github.com/Pure-the-Language/Pure/releases) or [Itch.io](https://charles-zhang.itch.io/pure)).
 
-## Chapter 1 - Basics
+## Chapter 2 - Basics
 
 ### Declare Variables
 
@@ -36,7 +64,7 @@ Use `Import(<Library Name>)` to import libraries. Libraries should be available 
 
 A library is a collection of C# functionalities. ~~It can optionally expose a static Main class, the methods of which will become available at global scope upon import~~ (deprecating, consider using `using static` explicitly instead).
 
-### 1D Vectot Numerics
+### 1D Vector Numerics
 
 Pure supports simple vector numerics through a library. See Vector library for more details. Below is some basic example:
 
@@ -50,7 +78,7 @@ a + b
 a * 5
 ```
 
-## Chapter 2 - REPL
+## Chapter 4 - REPL
 
 As a scripting tool, REPL and scripts are two primary use of Pure. REPL refers to read–eval–print loop, it's done by interactively executing Pure expressions with the interpreter terminal Pure.
 
@@ -62,7 +90,7 @@ At any time during REPL (read–eval–print loop), use `Help(<name>)` to get in
 
 After you've done some REPL exercise, you can output you inputs in this session by using the `Save(<File Path>)` command. After it's saved, you can modify and clean up the saved history of commands for proper script re-use.
 
-## Chapter 3 - Standard Libraries
+## Chapter 5 - Standard Libraries
 
 ~~A few standard libraries are provided as light wrappers of some conventional functionalities as encountered per author's experience and work needs.~~ (If it's really as lightweight or trivial like this, consider exposing them as snippets ~~or macros~~)
 
@@ -80,7 +108,7 @@ FROM MyValues
 """); // Returns an array
 ```
 
-## Chapter N - Proper Usage Tipcs -> Best Practice
+## Chapter 7 - Proper Usage Tipcs -> Best Practice
 
 Pure is designed for quick one-shot scripts that are short and functional. As a rule of thumb, it's intended for things that do not exceed a few hundred lines - assuming proper code management is already implemented.
 
