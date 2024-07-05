@@ -2,6 +2,8 @@
 
 <!-- Pending video tutorial series on Pure's available libraries on the YouTube channel! -->
 
+> Safer, Faster, Better, now part of the Parcel NExT ecosystem.
+
 THIS IMPLEMENTATION IS A WORK-IN-PROGRESS AS OF 2024-06-16.
 
 ## Introduction
