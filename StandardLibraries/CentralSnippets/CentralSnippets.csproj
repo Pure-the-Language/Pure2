@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.NExT.Interpreter\Parcel.NExT.Interpreter.csproj" />
-    <ProjectReference Include="..\..\Core\Pure.Core.csproj" />
   </ItemGroup>
 
 </Project>
