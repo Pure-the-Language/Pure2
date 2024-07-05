@@ -37,3 +37,24 @@ The current state of Pure is very OK to be used for one-liners and quick REPL co
 ## Libraries
 
 - [ ] Refactor all libraries in to Parcel Core (notice they are NOT part of Parcel Standard Libraries)
+
+Proposal:
+
+- [ ] Library: Shell. Emulates most common linux shell command (e.g. ls, pwd, cat) as either properties (lower case) or functions.
+
+## Snippets Sharing
+
+- [ ] Provide a streamlined place for snippets sharing! Provide way easier interface/hosting to use than Github CentralSnippets
+- [ ] Allow direct online browsing of snippets and triggering/running! (Like .Net Fiddle)
+- [ ] Provide way easier snippet "pulling" than CentralSnippets - consider exposing native `Pull` macro. Think carefully as this is going to be a big feature.
+
+## Pure 2 - New Features!
+
+- [ ] Fix `Include(Script)`, use syntax level pre-parsing to properly handling include hierarchies
+- [ ] Add `Use(Graph)` for Parcel compatibility
+- [ ] Update `Help()` on Properties: at the moment getters and setters have ugly displays
+
+Provide two magic commands:
+
+- [ ] `Pure init` to convert a single script into a proper `dotnet new console` project, with syntax already adjusted, modules already referenced properly (requires syntax parsing)
+- [ ] `Pure publish` to automatically convert a single script into an (AOT) .exe file! Like always, Pure does it in a very clean fashion with no (visible) intermediate garbage, and it's ultimately a very thin layer on top of existing .Net framework!

@@ -16,6 +16,10 @@ Advanced features:
 * [GUI] Ability to hide/collape code cell blocks by default (when opening new files)
 * [System] Allow self-referencing in Notebook, i.e. somehow inject a Notebook only property like "Arguments" that allows the running cell to access previous cell outputs (and maybe outputs of all other cells); This will allow a single cell script to have self-sustained state. May implement this as an extension of base class Interpreter.
 
+Additional features (TODO):
+
+- [ ] Allow "kill" or "stop" cell execution (e.g. during a blocking call) (e.g. when testing barebone http server).
+
 ### Issues
 
 1. Currently we have no way to limit max height for Avalon Edit - the Text Editor control either is fixed at a certain height or will not show scrollbar automatically. And it eats our scrolling event and that makes scolling and editing long code blocks inconvinient. This issue is mentioned here: https://github.com/icsharpcode/AvalonEdit/issues/394
