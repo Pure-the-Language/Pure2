@@ -1,6 +1,4 @@
-﻿using Core.Helpers;
-using ScottPlot;
-using System.Diagnostics;
+﻿using ScottPlot;
 using System.Reflection;
 
 namespace Graphing
@@ -59,9 +57,9 @@ namespace Graphing
         {
             // Prepare arguments
             if (settings.Length == 0 || !settings.Any(s => s.EndsWith(".png")))
-                settings = new string[] { $"--{nameof(PlotOptions.Interactive)}" };
+                settings = [$"--Default.png"];
             else if (!settings.First().StartsWith("--"))
-                settings = new string[] { $"--{nameof(PlotOptions.OutputImage)}" }.Concat(settings).ToArray();
+                settings = [$"--{nameof(PlotOptions.OutputImage)}", .. settings];
 
             // Parse arguments
             var options = CLI.Main.Parse<PlotOptions>(settings);
@@ -140,41 +138,6 @@ namespace Graphing
         }
         #endregion
 
-        #region Interactivity
-        /// <summary>
-        /// Create display using interactive window
-        /// </summary>
-        public static void SummonInteractiveWindow(PlotType plotType, double[] x, List<double[]> ys, PlotOptions options)
-        {
-            string executableName = "PlotWindow.exe";
-            string defaultPath = Path.Combine(GetAssemblyFolder(), "Windows", executableName);
-            string secondaryPath = PathHelper.FindDLLFileFromEnvPath(executableName);
-
-            // Find plot window executable
-            string backendPath = defaultPath;
-            if (!File.Exists(backendPath))
-                backendPath = secondaryPath;
-            if (!File.Exists(backendPath))
-            {
-                Console.WriteLine($"Failed to find executable from paths: neither {defaultPath} or {secondaryPath}");
-                return; // Remark: Fail silently
-            }
-
-            // Create intermediate file
-            string filePath = Path.GetTempFileName();
-            InteractivePlotData.SaveData(new InteractivePlotData()
-            {
-                PlotType = plotType,
-                X = x,
-                Ys = ys,
-                Options = options
-            }, filePath);
-
-            // Summon process
-            Process.Start(new ProcessStartInfo(backendPath, $"\"{filePath}\""));
-        }
-        #endregion
-
         #region Helper
         /// <summary>
         /// Get folder path of currently executing assembly
@@ -190,7 +153,7 @@ namespace Graphing
     }
 
     /// <summary>
-    /// Standard library entry
+    /// Library entry
     /// </summary>
     public static class Main
     {
@@ -231,7 +194,6 @@ namespace Graphing
         public static void Plot(PlotType plotType, double[] x, List<double[]> ys, PlotOptions options = null)
         {
             options ??= DefaultOptions;
-            options.Interactive = true;
 
             Execute(plotType, x, ys, options);
         }
@@ -272,8 +234,6 @@ namespace Graphing
                 ScottPlot.Plot plt = Plotters.InitializePlot(plotType, x, ys, options);
                 plt.SavePng(options.OutputImage, options.WindowWidth, options.WindowHeight);
             }
-            if (options.Interactive)
-                Plotters.SummonInteractiveWindow(plotType, x, ys, options);
         }
         #endregion
     }

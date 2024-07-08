@@ -13,7 +13,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Csv" Version="2.0.93" />
-		<PackageReference Include="pythonnet" Version="3.0.1" />
+		<PackageReference Include="pythonnet" Version="3.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.CoreEngine\Parcel.CoreEngine.csproj" />
 	</ItemGroup>
 
 </Project>

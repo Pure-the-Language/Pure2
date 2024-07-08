@@ -1,5 +1,5 @@
 # Build libraries and nugets
-Write-Host "Build libraries..."
+Write-Host "Build libraries (dlls and nugets)..."
 $PrevPath = Get-Location
 Set-Location $PSScriptRoot
 
@@ -23,15 +23,6 @@ $PublishLibraries = @(
 )
 foreach ($Item in $PublishLibraries) {
     dotnet publish $PSScriptRoot\..\$Item --use-current-runtime --output $LibraryPublishFolder
-}
-# Publish Windows-only Library Components (executable)
-if ($IsWindows) {
-    $PublishWindowsLibraryComponents = @(
-        "StandardLibraries\PlotWindow\PlotWindow.csproj"
-    )
-    foreach ($Item in $PublishWindowsLibraryComponents) {
-        dotnet publish $PSScriptRoot\..\$Item --runtime win-x64 --self-contained --output $WindowsPublishFolder
-    }
 }
 # Publish Nugets
 $PublishNugets = @(

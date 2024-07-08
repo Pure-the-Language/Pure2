@@ -1,7 +1,4 @@
-﻿using Core;
-using Core.Helpers;
-using Core.Services;
-using ICSharpCode.AvalonEdit;
+﻿using ICSharpCode.AvalonEdit;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -14,6 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Parcel.CoreEngine.Helpers;
+using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Helpers;
 
 namespace Notebook
 {
@@ -30,7 +30,7 @@ namespace Notebook
             // Remark-cz: 1st argument is executable path (aka. Notebook.exe), 2nd argument is taken to be open file path
             var args = Environment.GetCommandLineArgs();
             Interpreter = new Interpreter($"""
-                    Pure Notebook (Core Version: {Interpreter.DistributionVersion})
+                    Notebook for Pure 2 (Core Version: {Interpreter.DistributionVersion})
                     """, null, args.Length > 2 ? args.Skip(2).ToArray() : null, null, null);
             // Remark-cz: Update for Notebook post .Net 8 upgrade, where we build Notebook.exe in dedicated Windows folder
             string assemblyParentFolder = Path.GetDirectoryName(AssemblyHelper.ExecutingAssemblyDirectory);
@@ -315,7 +315,7 @@ namespace Notebook
             };
             if (window.ShowDialog() == true && !string.IsNullOrEmpty(window.Result))
             {
-                string[] arguments = window.Result.SplitArgumentsLikeCsv(' ');
+                string[] arguments = window.Result.SplitCommandLineArguments(' ');
                 Interpreter.UpdateScriptArguments(arguments);
             }
             e.Handled = true;

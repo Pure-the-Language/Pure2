@@ -12,11 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <PackageReference Include="RestSharp" Version="111.2.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.csproj" />
+    <ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.NExT.Interpreter\Parcel.NExT.Interpreter.csproj" />
   </ItemGroup>
 
 </Project>

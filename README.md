@@ -1,10 +1,14 @@
 # Pure 2 - Lightweight Native C# Scripting (Now part of the Parcel NExT Platform⚡)
 
-THIS IMPLEMENTATION IS A WORK-IN-PROGRESS AS OF 2024-06-09.
+<!-- Pending video tutorial series on Pure's available libraries on the YouTube channel! -->
 
-<!-- Pending video tutorial series on Pure's YouTube channel! -->
+> Safer, Faster, Better, now part of the Parcel NExT ecosystem.
 
-Pure 2 is a lightweight C# scripting platform with modern C# 12 syntax and support for easy Nuget import. Pure is based on Roslyn. In addition to base .Net runtime functionalities, Pure offers some standard libraries for quickly dealing with common tasks, and provides a handy scripting (REPL and Notebook) interface, plus a place where people can share their [snippets](https://github.com/Pure-the-Language/CentralSnippets). Pure 2 is conceptually similar to [Pure](https://github.com/Pure-the-Language/Pure) but will be architecturally very different - it directly builds upon Parcel NExT's Ama runtime.
+THIS IMPLEMENTATION IS A WORK-IN-PROGRESS AS OF 2024-06-16.
+
+## Introduction
+
+Pure 2 is a lightweight C# scripting platform with modern C# 12 syntax and support for easy Nuget import. Pure is based on Roslyn. In addition to base .Net runtime functionalities, Pure offers some additional libraries for quickly dealing with common tasks, and provides a handy scripting (REPL and Notebook) interface, plus a place where people can share their [snippets](https://github.com/Pure-the-Language/CentralSnippets). Pure 2 is conceptually similar to [Pure](https://github.com/Pure-the-Language/Pure) but will be architecturally very different - it directly builds upon Parcel NExT's Ama runtime. Pure is designed for very short snippets and getting everyday tasks done quicker.
 
 Pure 2 uses C# 12 and is similar to [top-level statements](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements) in C#, with the following features:
 
@@ -17,10 +21,27 @@ Pure 2 uses C# 12 and is similar to [top-level statements](https://learn.microso
 
 Features:
 
-* Single-word package names.
-* On-prompto package invokation (through `Import`).
+* Single-word standard package names. One-command NuGet package import, on-prompto package invokation (through `Import`). 
+* Full compatibility with Parcel packages and Parcel graphs.
 * Pure uses `PUREPATH` to search for scripts when using `Include` and when executing script file directly from command line as the first argument.
 * Pure is very lightweight and will always be a thin layer on top of existing Roslyn/.Net runtime.
+* CLI REPL; GUI Notebook.
+
+```mermaid
+timeline
+    Title Version Timeline
+    2022-2024: Pure (Version 1)
+    2024: Pure (Version 1) (v0.7.3)
+    2024 June: Pure 2 (v0.0.1)
+```
+
+### Migration from Pure (Version 1)
+
+Pure 2 will NOT be backward compatible with Pure! However it's likely Pure will be forward compatible with Pure 2 to some extent.
+
+PENDING MIGRATION NOTES.
+
+## Comparison
 
 I have highlighted the difference/advantage compared to traditional programming/scripting platforms:
 
@@ -40,26 +61,7 @@ Certain macros/syntax are provided to implement language level scripting constru
 |`Help(name)`|Get help about namespaces, types, and specific variables||
 |Expresison evaluation|For single line assignment and variable creation, no need to append `;` at end of line - for script files, it must be properly formatted|Only applicable at REPL|
 
-```mermaid
-timeline
-    Title Version Timeline
-    2022-2024: Pure (Version 1)
-    2024: Pure (Version 1) v0.7.3
-    2024 June: Pure 2
-```
-
-## Notebook Program
-
-Besides `Pure.exe`, there is a separate `Notebook.exe` which provides jupyter notebook like interface for easier debugging and development.
-
-The Notebook interface is only usable for Window - but one can easily develop one for other desktop environments using cross-platform techniques. I didn't bother because I am the only one using Pure.  
-WARNING: Notice Pure is not for you if you - 1) Need to run and maintain outdated code base that's reluctant to adapt new C# features; 2) Have strong dependancies on custom libraries or legacy codes; 3) Can only use .Net Framework; 4) Need to stick with a single runtime version for long time. In those circumstances, Pure is not for you because Pure will always be updated to latest .Net runtime and backward compatibility is one of the least concern when it comes to adapting new features (though some level of "stability" is apparently assumed).
-
-## Migration from Pure (Version 1)
-
-Pure 2 will NOT be backward compatible with Pure! However it's likely Pure will be forward compatible with Pure 2 to some extent.
-
-PENDING MIGRATION NOTES.
+<!-- Pending a very reasonable comparison video between Excel, Pure (2), Python, and Parcel to highlight the main feature of pure: short and quick CLI use with in-place package import (like Julia), very domain-specific libraries, clean syntax -->
 
 ## Installation & Source Build
 
@@ -68,7 +70,20 @@ The source code can be built on Windows/Linux with .Net 8 SDK.
 * To use on Windows, just download prebuilt executables from [Release](./releases/latest).
 * To build on Linux, either try `PublishAll.ps1` (require `pwsh`), or just do `dotnet publish Frontends/Pure/Pure.csproj --use-current-runtime --output Publish`.
 
-## Create a Library for Use in Pure
+## Utilities
+
+### Notebook Program
+
+Besides `Pure.exe`, there is a separate `Notebook.exe` which provides jupyter notebook like interface for easier debugging and development.
+
+The Notebook interface is only usable for Window - but one can easily develop one for other desktop environments using cross-platform techniques. I didn't bother because I am the only one using Pure.  
+WARNING: Notice Pure is not for you if you - 1) Need to run and maintain outdated code base that's reluctant to adapt new C# features; 2) Have strong dependancies on custom libraries or legacy codes; 3) Can only use .Net Framework; 4) Need to stick with a single runtime version for long time. In those circumstances, Pure is not for you because Pure will always be updated to latest .Net runtime and backward compatibility is one of the least concern when it comes to adapting new features (though some level of "stability" is apparently assumed).
+
+## Advanced Topics
+
+### Create a Library for Use in Pure
+
+<!-- Keywords: Library Development -->
 
 There are three types of ready-to-use libraries for Pure:
 
@@ -79,12 +94,16 @@ There are three types of ready-to-use libraries for Pure:
 The intended usage scenario of Pure is like this:
 
 * Pure provides a complete syntax and all of the standard features of .Net 8 runtime (C# 12)
-* On top of the basics, Pure provides some standard libraries to further streamline common tasks
+* On top of the basics, Pure provides some additional libraries/snippets to further streamline common tasks
 * On top of that, Pure provides native support for library importing (using `Import()`) and scripting importing (using `Include()`)
 * When extending existing functionalities of Pure or simply developing libraries around re-usable code, a developer would write actual C# Class Library projects and expose those as DLLs for end consumption in Pure.
 
-As such, to create a library for Pure is very easy - just like creating any standard C# library. A convention is used that a static class named `Main` inside the library assembly will have all its static members made available globally when using `Import()` in Pure.  
-By default, when importing in Pure, all namespaces of the DLL module containing public classes will be imported.
+As such, to create a library for Pure is very easy - just like creating any standard C# library. By default, when importing in Pure, all namespaces of the DLL module containing public classes will be imported.
+
+Libraries can provide rich runtime behavior by adopting those conventions (none of which requires a dependency on Pure 2's runtime), which take effect during Import using `Import()`:
+
+1. When a static class named `Main` is provided inside the library assembly, all its static members will be made available globally;
+2. If a static class name `Pure2LibraryOptions` is provided, there are a few parameters one can use to alter library loading behavior: 1) `public static bool DefaultNamespaceImport = true` Specifies whether we should import all namespaces containing public classes by default; 2) `public static string[] TopLevelClasses = ["Main"]` Specifies which classes should expose all its members at import time, this is equivalent to or an alternative to using `Main` (useful when we have multiple classes which we wish to export names at global level). <!--Pending consolidating with Parcel package conventions, we can put Pure specific options as additional recognizable names on top of Parcel's package metadata. In package metadata, we also need to provide information like: package name, package description, package version. Don't bother with things like icons etc.-->
 
 **Troubleshooting**
 
@@ -94,18 +113,18 @@ System.Drawing is not (directly) supported on this platform. Notice the scenario
 
 Library authoring requirements: Note that any (plug-in) libraries being authored CANNOT (and thus should not) directly target (or indirectly target) *.Net 8 Windows* because the hosting environment (aka. Pure) target *.Net 8* (without specifying windows as target). The solution for this is to isolate such components and trigger as sub-process (so some sort of data tranmission or IPC is needed).
 
-## Visual Studio Development
+### Visual Studio Development (Full C# Projects)
 
-For quick on-demand develpment, it's recommended to use [Notebook](./Frontends/Notebook/) for that purpose.
+For quick iterative on-demand development, it's recommended to use [Notebook](./Frontends/Notebook/) for that purpose.
 
 For slightly more involved scripts, one can use Visual Studio for debugging purpose. (For more advanced applications, it's recommended to use proper C#). Notice it's recommended to keep everything in single file and do not commit csproj and sln files to version control.
 
-Create a C# Console project with .Net 8 while making sure *Do not use top level statements* is toggled off.
+Create a C# Console project with .Net 8 while making sure *Do not use top level statements* is toggled off. (If you use command line, you can also just do `dotnet new console` in the script folder)
 
 ![VSDevSetup_Step1](./docs/Images/VSDevSetup_Step1.png)
 ![VSDevSetup_Step2](./docs/Images/VSDevSetup_Step2.png)
 
-It's recommended to specify `<Nullable>disable</Nullable>` in `.csproj` file, as shown below:
+It's optional to specify `<Nullable>disable</Nullable>` in `.csproj` file if you don't want to handle `null` values, as shown below:
 
 ![VSDevSetup_Step3](./docs/Images/VSDevSetup_Step3.png)
 
@@ -162,3 +181,5 @@ Where,
 1. `Import()` and `Include()` doesn't work, but one can use Nuget and project files to achieve the same effect.
 2. `using` statements must be at the top of the script in both C# and Pure.
 3. One needs to define an auxiliary `string[] Arguments` which is supplemented by Pure otherwise.
+
+A video instruction is available for [converting Pure scripts into C# projects](https://youtu.be/cMwUXAynZcs?si=5I_qjP2B21R4mrdv).

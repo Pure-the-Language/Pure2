@@ -1,5 +1,6 @@
-﻿using Core;
-using Core.Helpers;
+﻿using Parcel.CoreEngine.Helpers;
+using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Helpers;
 
 namespace Pure
 {
@@ -11,7 +12,7 @@ namespace Pure
             if (args.Length == 1 && args.Single().Equals("--help", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine($"""
-                    Interactive Pure Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
+                    Pure 2 Interactive Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
                     CLI Variants:
                       pure: REPL mode
                       pure --version: Print version
@@ -29,8 +30,9 @@ namespace Pure
             else if (args.Length == 0)
             {
                 var interpreter = new Interpreter($"""
-                    Interactive Pure Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
-                    This is the frontend to Pure, the C# scripting platform.
+                    Pure 2 Interactive Interpreter (REPL) (Core Version: {Interpreter.DistributionVersion})
+                    Powered by Parcel.NExT, a visual programming platform.
+                    Type Help() or use --help to view help.
                     """, null, null, null, null);
                 interpreter.Start();
                 EnterInteractiveMode(interpreter);

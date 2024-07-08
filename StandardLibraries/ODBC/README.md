@@ -5,6 +5,8 @@ Status: Official
 This library provides standard ODBC access with special routines for strongly typed encapsulation.  
 Behind the scene, it's a thin wrapper around Dapper.
 
+<!-- Notice this library follows OOP paradigm and doesn't apply directly to the Parcel NExT style of usage - unless somehow we have a major framework support from the Parcel side to allow using this kind of functions more naturally.-->
+
 ## Changelog
 
 * v0.0.1: First draft; Implement preliminary Select and other commands.

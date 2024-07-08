@@ -12,12 +12,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.6" />
-		<PackageReference Include="ScottPlot" Version="5.0.16" />
+		<PackageReference Include="K4os.Compression.LZ4.Streams" Version="1.3.8" />
+		<PackageReference Include="ScottPlot" Version="5.0.34" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Core\Core.csproj" />
+		<ProjectReference Include="..\..\..\Parcel\Parcel_NExT\C#\Parcel.NExT\CoreEngines\Parcel.NExT.Interpreter\Parcel.NExT.Interpreter.csproj" />
 		<ProjectReference Include="..\CLI\CLI.csproj" />
 	</ItemGroup>
 </Project>

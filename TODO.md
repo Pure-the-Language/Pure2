@@ -1,6 +1,7 @@
 ## TODO
 
-(CONSIDER PUTTING THEM ALL INTO GITHUB ISSUES)
+(CONSIDER PUTTING THEM ALL INTO ADO; PENDING GATHERING OLD GITHUB ISSUES)
+(Also search "TODO" in all files)
 
 The current state of Pure is very OK to be used for one-liners and quick REPL commands. The two frontends (one REPL/CLI and the other Notebook) are generally very stable right now (as of 2023 late summer to Dec).
 
@@ -14,18 +15,46 @@ The current state of Pure is very OK to be used for one-liners and quick REPL co
 - [ ] Currently `Help` is not showing extension methods.
 
 - [ ] (Documentation) Create basic usage YouTube demo
-- [ ] (Documentation) Create standard library YouTube usage tutorial
-- [ ] (Documentation) Create very basic YouTube tutorials: Intro, CLI usage, Notebook usage, embedding (using Core to consume scripts), and standard library usage. Pure-The-Language YouTube channel.
-- [ ] (Documentation) Train custom OpenAI model helping new user decide which standard library or existing snippet can help solve specific problem.
+- [ ] (Documentation) Create YouTube usage tutorial for available Pure libraries
+- [ ] (Documentation) Create very basic YouTube tutorials: Intro, CLI usage, Notebook usage, embedding (using Core to consume scripts), and existing library usage. Pure-The-Language YouTube channel.
+- [ ] (Documentation) Train custom OpenAI model helping new user decide which custom library or existing snippet can help solve specific problem.
 
-- [ ] (Standard Libraries) ScottPlot released version 5, we need to update our reference. This will be a breaking change to users because API is different - if they referenced ScottPlot directly from Pure.
-- [ ] (Standard libraries, Management) Rename CentralSnippets to Snippets; This way it's much quicker to type.
-- [ ] (Standard libraries) Add/Implement those: CSV (Read Write), Excel (Read Write), DataSource (Read: CSV, Excel, ODBC), InMemoryDB, add Parcel DataGrid standalone package.
-- [ ] (Standard libraries, Data Library) Provide `Data` (standalone).
-- [ ] (Standard Libraries) Preparing for deprecating `Main` by well-encapsulating standard libraries using proper class modules and utilize the abstraction of StandardLibrary, ExperimentalLibrary, etc.
-- [ ] (Standard Library) Add `Compiler` which works like how we are dealing with Nuget right now and is able to given a list of C# files (likely written in Pure) and output a proper DLL from it. The workflow is like this: we write scripts in Pure, we use Pure to compile such scripts as Dlls (or just to quickly generate csproj projects), then we can consume those dlls in native C# code or Python.Net - without needing to reference Core. Because if we just need to parse and consume thoes code as script we could just reference Core. The purpose of this Compiler is to compile native C# modules without dependancy on Pure. Apparently we will have to limit the source code to not contain any Pure specific functionalities. We will automatically convert `Import` to proper Nuget/csproj references, and convert `Include` to proper .cs files. I think Roslyn won't be able to compile code, so we will directly utilize `dotnet` (just like how we are treating `Import` right now). It can generate either a console project or a library project, targeting .Net 8.
+- [ ] (Custom Libraries) Pending consolidation: Pure 2 will NOT offer any custom libraries - all its library offerings are based on C# Nuget or Parcel eco system.
+- [ ] (Custom Libraries) ScottPlot released version 5, we need to update our reference. This will be a breaking change to users because API is different - if they referenced ScottPlot directly from Pure.
+- [ ] (Custom Libraries, Management) Rename CentralSnippets to Snippets; This way it's much quicker to type.
+- [ ] (Custom Libraries) Add/Implement those: CSV (Read Write), Excel (Read Write), DataSource (Read: CSV, Excel, ODBC), InMemoryDB, add Parcel DataGrid standalone package.
+- [ ] (Custom Libraries, Data Library) Provide `Data` (standalone).
+- [ ] (Custom Libraries) Preparing for deprecating `Main` by well-encapsulating custom libraries using proper class modules and utilize the abstraction of StandardLibrary, ExperimentalLibrary, etc.
+- [ ] (Custom Library) (Assembly Generation) Add `Compiler` library which works like how we are dealing with ~~Nuget~~ `dotnet` right now and is able to given a list of C# files (likely written in Pure) and output a proper DLL from it. The workflow is like this: we write scripts in Pure, we use Pure to compile such scripts as Dlls (or just to quickly generate csproj projects), then we can consume those dlls in native C# code or Python.Net - without needing to reference Core. Because if we just need to parse and consume those code as script we could just reference Core. The purpose of this Compiler is to compile native C# modules without dependency on Pure. Apparently we will have to limit the source code to not contain any Pure specific functionalities. We will automatically convert `Import` to proper Nuget/csproj references, and convert `Include` to proper .cs files. I think Roslyn won't be able to compile code, so we will directly utilize `dotnet` (just like how we are treating `Import` right now). It can generate either a console project or a library project, targeting .Net 8.
 
 - [ ] (Framework proposal) (Create a README first) Composer (or "Flow") with functional constructs: `Repeat`, `Sequence`, `Parallel`, `Condition`, and `(base class) Services` (as addons, existing ones: Query with pre and post-processing and simple template format, Stage for global state, etc. as basic nodes). Taking either actions or AtomicAction class instance; Auto-logging. (Can we utilize Aspire?)
 - [ ] (Framework) Expresso
 
 - [ ] (Notebook, GUI, Feature) Selected phrase highlight, or search-in-code-cells function. Makes refactoring variables easier.
+- [ ] (Notebook) Re-implement Notebook in Godot for cross-platform support and advanced features we didn't have last time. For this we could use embedded runtime in (full C#) Godot (instead of S/C architecture).
+- [ ] (Branding) Instead of calling Pure a "programming/scripting platform", we should downgrade it into simply a scripting tool, so it's more acceptable.
+
+## Libraries
+
+- [ ] Refactor all libraries in to Parcel Core (notice they are NOT part of Parcel Standard Libraries)
+
+Proposal:
+
+- [ ] Library: Shell. Emulates most common linux shell command (e.g. ls, pwd, cat) as either properties (lower case) or functions.
+
+## Snippets Sharing
+
+- [ ] Provide a streamlined place for snippets sharing! Provide way easier interface/hosting to use than Github CentralSnippets
+- [ ] Allow direct online browsing of snippets and triggering/running! (Like .Net Fiddle)
+- [ ] Provide way easier snippet "pulling" than CentralSnippets - consider exposing native `Pull` macro. Think carefully as this is going to be a big feature.
+
+## Pure 2 - New Features!
+
+- [ ] Fix `Include(Script)`, use syntax level pre-parsing to properly handling include hierarchies
+- [ ] Add `Use(Graph)` for Parcel compatibility
+- [ ] Update `Help()` on Properties: at the moment getters and setters have ugly displays
+
+Provide two magic commands:
+
+- [ ] `Pure init` to convert a single script into a proper `dotnet new console` project, with syntax already adjusted, modules already referenced properly (requires syntax parsing)
+- [ ] `Pure publish` to automatically convert a single script into an (AOT) .exe file! Like always, Pure does it in a very clean fashion with no (visible) intermediate garbage, and it's ultimately a very thin layer on top of existing .Net framework!

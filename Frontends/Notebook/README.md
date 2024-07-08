@@ -7,7 +7,7 @@ When triggered in command line (CMD and PowerShell), will enter CLI mode.
 ## TODO
 
 See in-code "TODO" for implementation specific todo items (also viewable in VS Task List).  
-See standard library-specific README for TODO items for standard libraries.
+See library-specific README for TODO items for libraries.
 
 Advanced features:
 
@@ -15,6 +15,10 @@ Advanced features:
 * [GUI] `// @Param <Description>` for GUI controls of primitive inputs
 * [GUI] Ability to hide/collape code cell blocks by default (when opening new files)
 * [System] Allow self-referencing in Notebook, i.e. somehow inject a Notebook only property like "Arguments" that allows the running cell to access previous cell outputs (and maybe outputs of all other cells); This will allow a single cell script to have self-sustained state. May implement this as an extension of base class Interpreter.
+
+Additional features (TODO):
+
+- [ ] Allow "kill" or "stop" cell execution (e.g. during a blocking call) (e.g. when testing barebone http server).
 
 ### Issues
 

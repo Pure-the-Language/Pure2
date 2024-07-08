@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using Parcel.NExT.Interpreter;
+using Parcel.NExT.Interpreter.Scripting;
 using RestSharp;
 
 namespace CentralSnippets
@@ -20,7 +21,7 @@ namespace CentralSnippets
             string content = GetContent(SnippetsHostSite, SnippetsRootFolder, snippetIdentifier, disableSSL);
             // Remark-cz: We need to split script first to allow handling of specific Pure constructs (e.g. Import)
             foreach(var segment in Interpreter.SplitScripts(content))
-                Core.Utilities.Construct.Parse(segment);
+                Construct.Parse(segment);
         }
         public static void Preview(string snippetIdentifier, bool disableSSL = false)
         {
